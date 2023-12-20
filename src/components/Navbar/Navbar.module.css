@@ -1,0 +1,38 @@
+.navbar {
+  padding: 6px 3%;
+  background-color: var(--color-fifth);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-third);
+}
+.title {
+  letter-spacing: 0.2px;
+  color: var(--color-third);
+}
+.title:hover {
+  filter: grayscale(0.3);
+  transition: 0.4s;
+}
+.blog {
+  font-size: 1.1em;
+}
+.navLink {
+  list-style-type: none;
+  margin: 0 12px;
+}
+.ulLinks {
+  display: flex;
+}
+.link {
+  color: var(--color-third);
+  padding: 2px 9px;
+  border-radius: 14px;
+  border: 1px solid var(--color-third);
+}
+.link:hover {
+  background-color: var(--color-third);
+  color: var(--color-fifth);
+  filter: grayscale(0.3);
+  transition: 0.4s;
+}
