@@ -3,17 +3,20 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Nunito Sans", sans-serif;
+  color: var(--color-second);
 }
+
 :root {
   --color-first: #f7fff7;
   --color-second: #414833;
   --color-third: #f3722c;
   --color-fourth: #8377d1;
   --color-fifth: #faf9f9;
+  --color-sixth: rgba(254, 236, 212, 0.9);
 }
 
 body {
-  background-color: var(--color-first);
+  background-color: var(--color-fifth);
 }
 input::placeholder,
 textarea::placeholder {
@@ -37,4 +40,33 @@ nav button {
 a:hover,
 nav button:hover {
   color: var(--color-third);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  text-align: left;
+}
+.input {
+  background-color: var(--color-sixth);
+  border: 1px solid var(--color-third);
+  padding: 6px;
+  font-size: 0.9em;
+  border-radius: 3px;
+  margin-top: 4px;
+  width: 100%;
+}
+.btn {
+  background-color: var(--color-third);
+  border: 1px solid var(--color-third);
+  padding: 5px;
+  font-size: 1em;
+  border-radius: 3px;
+  margin-top: 8px;
+  color: var(--color-fifth);
+}
+.btn:hover {
+  filter: brightness(1.2);
+  transition: 0.3s;
+  cursor: pointer;
 }

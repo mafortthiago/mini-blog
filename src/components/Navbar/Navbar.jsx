@@ -20,6 +20,16 @@ const Navbar = () => {
             Sobre
           </NavLink>
         </li>
+        <li className={styles.navLink}>
+          <NavLink to={"/login"} className={styles.link}>
+            Entrar
+          </NavLink>
+        </li>
+        <li className={styles.navLink}>
+          <NavLink to={"/register"} className={styles.link}>
+            Registrar
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
