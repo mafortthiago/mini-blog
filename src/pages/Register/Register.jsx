@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuthentication } from "../../hooks/useAuthentication";
 import styles from "./Register.module.css";
 import { useState, useEffect } from "react";
 const Register = () => {
@@ -7,8 +8,9 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const { createUser, error: authError, loading } = useAuthentication();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -21,8 +23,14 @@ const Register = () => {
       setError("As senhas não coincidem");
       return;
     }
+    const res = await createUser(user);
     console.log(user);
   };
+  useEffect(() => {
+    if (authError) {
+      setError(authError);
+    }
+  }, [authError]);
   return (
     <main className={styles.main}>
       <div className={styles.register}>
@@ -73,7 +81,12 @@ const Register = () => {
               onChange={(e) => setconfirmPassword(e.target.value)}
             />
           </label>
-          <input type="submit" value={"Cadastrar"} className="btn" />
+          {!loading && (
+            <input type="submit" value={"Cadastrar"} className="btn" />
+          )}
+          {loading && (
+            <input type="submit" value={"Aguarde"} className="btn" disabled />
+          )}
           {error && <p className={styles.messageError}>{error}</p>}
         </form>
       </div>
