@@ -20,9 +20,11 @@
 .navLink {
   list-style-type: none;
   margin: 0 12px;
+  height: 40;
 }
 .ulLinks {
   display: flex;
+  align-items: center;
 }
 .link {
   color: var(--color-third);
@@ -35,4 +37,12 @@
   color: var(--color-fifth);
   filter: grayscale(0.3);
   transition: 0.4s;
+}
+.logout_img {
+  width: 24px;
+}
+.btn_logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

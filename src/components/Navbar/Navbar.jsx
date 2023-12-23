@@ -1,11 +1,13 @@
 import React from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useAuthValue } from "../../context/AuthContext";
+
 import { NavLink } from "react-router-dom";
+import imgLogOut from "../../assets/img/logOut.png";
 import styles from "./Navbar.module.css";
 const Navbar = () => {
   const { user } = useAuthValue();
-
+  const { logOut } = useAuthentication();
   return (
     <nav className={styles.navbar}>
       <NavLink to={"/"}>
@@ -51,6 +53,17 @@ const Navbar = () => {
               </NavLink>
             </li>
           </>
+        )}
+        {!user && (
+          <li className={styles.navLink}>
+            <button onClick={logOut} className={styles.btn_logout}>
+              <img
+                src={imgLogOut}
+                alt="botão de logOut"
+                className={styles.logout_img}
+              />
+            </button>
+          </li>
         )}
       </ul>
     </nav>
