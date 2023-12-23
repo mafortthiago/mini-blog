@@ -54,7 +54,7 @@ const Navbar = () => {
             </li>
           </>
         )}
-        {!user && (
+        {user && (
           <li className={styles.navLink}>
             <button onClick={logOut} className={styles.btn_logout}>
               <img

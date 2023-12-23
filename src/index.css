@@ -9,10 +9,12 @@
 :root {
   --color-first: #f7fff7;
   --color-second: #414833;
+  --color-second-strong: #191c14;
   --color-third: #f3722c;
   --color-fourth: #8377d1;
   --color-fifth: #faf9f9;
   --color-sixth: rgba(254, 236, 212, 0.9);
+  --color-seventh: rgba(249, 202, 184, 0.9);
 }
 
 body {

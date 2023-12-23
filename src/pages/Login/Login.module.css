@@ -1,0 +1,22 @@
+.main {
+  background: url("../../assets/img/fundo_login.jpg");
+  background-position: top;
+  background-size: cover;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login {
+  width: 30%;
+  background-color: var(--color-seventh);
+  text-align: center;
+  padding: 2%;
+  border: 1px solid var(--color-third);
+  border-radius: 12px;
+}
+.login h2,
+.login p,
+.login span {
+  color: var(--color-second-strong);
+}
