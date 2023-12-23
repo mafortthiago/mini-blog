@@ -1,7 +1,11 @@
 import React from "react";
+import { useAuthentication } from "../../hooks/useAuthentication";
+import { useAuthValue } from "../../context/AuthContext";
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 const Navbar = () => {
+  const { user } = useAuthValue();
+
   return (
     <nav className={styles.navbar}>
       <NavLink to={"/"}>
@@ -20,16 +24,34 @@ const Navbar = () => {
             Sobre
           </NavLink>
         </li>
-        <li className={styles.navLink}>
-          <NavLink to={"/login"} className={styles.link}>
-            Entrar
-          </NavLink>
-        </li>
-        <li className={styles.navLink}>
-          <NavLink to={"/register"} className={styles.link}>
-            Registrar
-          </NavLink>
-        </li>
+        {!user && (
+          <>
+            <li className={styles.navLink}>
+              <NavLink to={"/login"} className={styles.link}>
+                Entrar
+              </NavLink>
+            </li>
+            <li className={styles.navLink}>
+              <NavLink to={"/register"} className={styles.link}>
+                Registrar
+              </NavLink>
+            </li>
+          </>
+        )}
+        {user && (
+          <>
+            <li className={styles.navLink}>
+              <NavLink to={"/dashboard"} className={styles.link}>
+                Painel
+              </NavLink>
+            </li>
+            <li className={styles.navLink}>
+              <NavLink to={"/posts/create"} className={styles.link}>
+                Postar
+              </NavLink>
+            </li>
+          </>
+        )}
       </ul>
     </nav>
   );

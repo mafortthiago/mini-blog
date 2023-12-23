@@ -69,4 +69,5 @@ nav button:hover {
   filter: brightness(1.2);
   transition: 0.3s;
   cursor: pointer;
+  color: var(--color-second);
 }
