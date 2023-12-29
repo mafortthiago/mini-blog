@@ -112,7 +112,7 @@ const CreatePost = () => {
               type="text"
               name="tag"
               required
-              placeholder="Escreva as tag separadas por vírgulas"
+              placeholder="Escreva as tags separadas por vírgulas"
               onChange={(e) => setTag(e.target.value)}
               value={tag}
               className="input"

@@ -1,0 +1,41 @@
+.home {
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search {
+  padding: 5px;
+  width: 200px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  padding: 6px;
+  background-color: var(--color-third);
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn:hover {
+  color: var(--color-fifth);
+  border: 1px solid var(--color-second);
+  cursor: pointer;
+}
+.noPost {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0;
+}
+.post_list {
+  width: 50%;
+}
+.search_form {
+  display: flex;
+  margin-bottom: 10px;
+}
