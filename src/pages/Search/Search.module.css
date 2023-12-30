@@ -1,4 +1,23 @@
 .search_container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   width: 50%;
   margin: 20px auto;
+}
+.btn {
+  background-color: var(--color-third);
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 4px;
+  border-radius: 3px;
+}
+.btn:hover {
+  color: var(--color-fifth);
+  opacity: 0.9;
 }
