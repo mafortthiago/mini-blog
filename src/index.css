@@ -5,16 +5,53 @@
   font-family: "Nunito Sans", sans-serif;
   color: var(--color-second);
 }
-
+::selection {
+  background-color: var(--color-second-strong);
+  color: var(--color-third);
+}
 :root {
   --color-first: #f7fff7;
   --color-second: #414833;
   --color-second-strong: #191c14;
   --color-third: #f3722c;
-  --color-fourth: #8377d1;
+  --color-fourth: #d56224;
   --color-fifth: #faf9f9;
   --color-sixth: rgba(254, 236, 212, 0.9);
   --color-seventh: rgba(249, 202, 184, 0.9);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-third) var(--color-fifth);
+}
+
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: var(--color-fifth);
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: var(--color-sixth);
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: var(--color-sixth);
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--color-third);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-fourth);
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-fourth);
 }
 
 body {
