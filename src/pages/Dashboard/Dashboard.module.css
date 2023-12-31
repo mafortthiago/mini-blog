@@ -1,0 +1,44 @@
+.noPost,
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.dashboard {
+  padding: 20px;
+  min-height: 90vh;
+}
+.noPost {
+  min-height: 80vh;
+}
+.btn {
+  background-color: var(--color-third);
+  display: flex;
+  margin-top: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  padding: 4px;
+  border-radius: 3px;
+}
+.btn:hover {
+  color: var(--color-fifth);
+  opacity: 0.9;
+}
+.btnDashboard {
+  text-align: center;
+  padding: 6px;
+  border: 1px solid var(--color-third);
+  border-radius: 3px;
+  margin: 0 0.3%;
+  width: 33%;
+}
+.buttons {
+  display: flex;
+  padding: 4px;
+  border-radius: 3px;
+}
+.titleButtons {
+  margin-top: 6px;
+}

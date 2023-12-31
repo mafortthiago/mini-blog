@@ -29,7 +29,7 @@ const Post = () => {
         )}
       </div>
       <Link className={styles.btn} to={"/"}>
-        Voltar
+        Home
       </Link>
     </>
   );
