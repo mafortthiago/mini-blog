@@ -2,14 +2,18 @@ import styles from "./Dashboard.module.css";
 import { Link } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+
 const Dashboard = () => {
   const user = useAuthValue();
   const uid = user.uid;
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
-  const deleteDocument = (id) => {};
+  const { deleteDocument } = useDeleteDocument("posts");
+
   if (loading) {
     return <p>Carregando...</p>;
   }
+
   return (
     <div className={styles.dashboard}>
       <h2>Dashborad</h2>
@@ -25,16 +29,16 @@ const Dashboard = () => {
         <div>
           {posts &&
             posts.map((post) => (
-              <>
+              <div key={post.id}>
                 <h3 className={styles.titleButtons}>
                   Título do post: {post.title}
                 </h3>
-                <div key={post.id} className={styles.buttons}>
+                <div className={styles.buttons}>
                   <Link
                     to={`/posts/${post.id}`}
                     className={styles.btnDashboard}
                   >
-                    Ver o post
+                    Ver
                   </Link>
                   <Link
                     to={`/posts/edit/${post.id}`}
@@ -43,13 +47,18 @@ const Dashboard = () => {
                     Editar
                   </Link>
                   <Link
-                    onClick={() => deleteDocument(post.id)}
+                    onClick={() => {
+                      if (
+                        window.confirm("Tem certeza que deseja excluir o post?")
+                      )
+                        deleteDocument(post.id);
+                    }}
                     className={styles.btnDashboard}
                   >
                     Excluir
                   </Link>
                 </div>
-              </>
+              </div>
             ))}
         </div>
       )}
