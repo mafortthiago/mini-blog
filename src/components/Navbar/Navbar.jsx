@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import { useAuthValue } from "../../context/AuthContext";
 
@@ -8,6 +8,12 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
   const { user } = useAuthValue();
   const { logOut } = useAuthentication();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleMenuClick = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <nav className={styles.navbar}>
       <NavLink to={"/"}>
@@ -15,7 +21,13 @@ const Navbar = () => {
           Mini <span className={styles.blog}>blog</span>
         </h1>
       </NavLink>
-      <ul className={styles.ulLinks}>
+      <div
+        className={isOpen ? styles.menuAberto : styles.menuFechado}
+        onClick={() => handleMenuClick()}
+      >
+        <div className={styles.btn_menu}></div>
+      </div>
+      <ul className={isOpen ? styles.ulLinks : styles.none}>
         <li className={styles.navLink}>
           <NavLink to={"/"} className={styles.link}>
             Home
