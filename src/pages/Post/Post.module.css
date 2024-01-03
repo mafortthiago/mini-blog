@@ -1,5 +1,4 @@
 .post {
-  padding: 0 38px;
   width: 90%;
   justify-content: center;
   align-items: center;
@@ -12,6 +11,8 @@
 }
 .image {
   width: 100%;
+  height: max-content;
+  padding: 20px;
 }
 .content {
   width: 100%;
