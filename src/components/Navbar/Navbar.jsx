@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={styles.navbar} onClick={() => handleMenuClick()}>
       <NavLink to={"/"}>
         <h1 className={styles.title}>
           Mini <span className={styles.blog}>blog</span>
@@ -27,7 +27,7 @@ const Navbar = () => {
       >
         <div className={styles.btn_menu}></div>
       </div>
-      <ul className={isOpen ? styles.ulLinks : styles.none}>
+      <ul className={isOpen ? styles.ulLinks : styles.nav}>
         <li className={styles.navLink}>
           <NavLink to={"/"} className={styles.link}>
             Home

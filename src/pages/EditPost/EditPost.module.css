@@ -31,3 +31,8 @@
   width: 50%;
   margin-top: 3px;
 }
+@media (max-width: 640px) {
+  .form {
+    width: 90%;
+  }
+}

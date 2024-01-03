@@ -50,8 +50,12 @@
   justify-content: center;
   align-items: center;
 }
+.nav {
+  display: flex;
+  align-items: center;
+}
 @media (max-width: 640px) {
-  .none {
+  .nav {
     display: none;
   }
   .ulLinks {

@@ -57,6 +57,7 @@
 body {
   background-color: var(--color-fifth);
 }
+
 input::placeholder,
 textarea::placeholder {
   font-family: "Nunito Sans", sans-serif;

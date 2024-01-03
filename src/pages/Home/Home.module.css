@@ -38,4 +38,17 @@
 .search_form {
   display: flex;
   margin-bottom: 10px;
+  margin-top: 8px;
+}
+@media (max-width: 640px) {
+  .post_list {
+    width: 99%;
+  }
+  .home h2 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  .search_form {
+    flex-direction: column;
+  }
 }

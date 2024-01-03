@@ -25,6 +25,8 @@
 }
 .PostDetail .tags {
   display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
   margin: 4px 0;
 }
 .PostDetail .more {
@@ -38,4 +40,9 @@
 .PostDetail .more:hover {
   color: var(--color-fifth);
   opacity: 0.9;
+}
+@media (max-width: 640px) {
+  .PostDetail img {
+    height: 260px;
+  }
 }

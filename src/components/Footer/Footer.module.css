@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--color-fifth);
-
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
