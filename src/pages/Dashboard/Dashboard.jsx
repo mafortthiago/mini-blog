@@ -5,7 +5,7 @@ import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useDeleteDocument } from "../../hooks/useDeleteDocument";
 
 const Dashboard = () => {
-  const user = useAuthValue();
+  const { user } = useAuthValue();
   const uid = user.uid;
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
   const { deleteDocument } = useDeleteDocument("posts");
@@ -18,7 +18,7 @@ const Dashboard = () => {
     <div className={styles.dashboard}>
       <h2>Dashborad</h2>
       <p>Gerencie seus posts</p>
-      {posts && posts.length === 0 ? (
+      {posts && posts.filter((post) => post.uid === uid).length === 0 ? (
         <div className={styles.noPost}>
           <p>Não foram encontrados posts</p>
           <Link to={"/posts/create"} className={styles.btn}>

@@ -19,8 +19,6 @@ const Home = () => {
     }
   };
 
-  console.log(loading);
-
   return (
     <div className={styles.home}>
       <h2>Veja os nossos posts mais recentes</h2>
