@@ -24,7 +24,7 @@ const Register = () => {
       return;
     }
     const res = await createUser(user);
-    console.log(user);
+  
   };
   useEffect(() => {
     if (authError) {
