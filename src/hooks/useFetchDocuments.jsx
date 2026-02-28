@@ -1,64 +1,68 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { db } from "../services/config";
 import {
   collection,
-  query,
-  orderBy,
   onSnapshot,
+  orderBy,
+  query,
   where,
-  QuerySnapshot,
 } from "firebase/firestore";
 
 export const useFetchDocuments = (docCollection, search = null, uid = null) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [cancelled, setCancelled] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadData = async () => {
-      if (cancelled) return;
+    setLoading(true);
+    setError(null);
 
-      setLoading(true);
+    const collectionRef = collection(db, docCollection);
 
-      const collectionRef = await collection(db, docCollection);
+    try {
+      let q;
 
-      try {
-        let q;
-        if (search) {
-          q = await query(
-            collectionRef,
-            where("tag", "array-contains", search),
-            orderBy("createdAT", "desc")
-          );
-        } else if (uid) {
-          q = await query(
-            collectionRef,
-            where("uid", "==", uid),
-            orderBy("createdAT", "desc")
-          );
-        } else {
-          q = await query(collectionRef, orderBy("createdAT", "desc"));
-        }
-        await onSnapshot(q, (querySnapshot) => {
+      if (search) {
+        q = query(
+          collectionRef,
+          where("tag", "array-contains", search),
+          orderBy("createdAT", "desc"),
+        );
+      } else if (uid) {
+        q = query(
+          collectionRef,
+          where("uid", "==", uid),
+          orderBy("createdAT", "desc"),
+        );
+      } else {
+        q = query(collectionRef, orderBy("createdAT", "desc"));
+      }
+
+      const unsubscribe = onSnapshot(
+        q,
+        (querySnapshot) => {
           setDocuments(
             querySnapshot.docs.map((doc) => ({
               id: doc.id,
               ...doc.data(),
-            }))
+            })),
           );
-        });
+          setLoading(false);
+        },
+        (snapshotError) => {
+          setError(snapshotError.message);
+          setLoading(false);
+        },
+      );
 
-        setLoading(false);
-      } catch (error) {
-        setError(error.message);
-        setLoading(false);
-      }
-    };
-    loadData();
-  }, [docCollection, search, uid, cancelled]);
-  useEffect(() => {
-    return () => setCancelled(true);
-  }, []);
+      return () => unsubscribe();
+    } catch (queryError) {
+      setError(queryError.message);
+      setLoading(false);
+
+      return undefined;
+    }
+  }, [docCollection, search, uid]);
+
   return { documents, loading, error };
 };

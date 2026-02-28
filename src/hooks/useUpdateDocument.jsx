@@ -1,9 +1,9 @@
-import { useState, useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { db } from "../services/config";
-import { updateDoc, doc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
 const initialState = {
-  loading: null,
+  loading: false,
   error: null,
 };
 
@@ -34,21 +34,18 @@ export const useUpdateDocument = (docCollection) => {
     checkCancelBeforeDispatch({ type: "LOADING" });
 
     try {
-      const docRef = await doc(db, docCollection, id);
+      const docRef = doc(db, docCollection, id);
 
-      console.log(docRef);
-
-      const updatedDocument = await updateDoc(docRef, data);
-
-      console.log(updateDocument);
+      await updateDoc(docRef, data);
 
       checkCancelBeforeDispatch({
         type: "UPDATED_DOC",
-        payload: updatedDocument,
       });
+
+      return true;
     } catch (error) {
-      console.log(error);
       checkCancelBeforeDispatch({ type: "ERROR", payload: error.message });
+      return false;
     }
   };
 

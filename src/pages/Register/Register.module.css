@@ -1,4 +1,6 @@
 .register {
+  position: relative;
+  z-index: 2;
   background-color: var(--color-sixth);
   margin: 0 20px;
   display: flex;
@@ -9,22 +11,51 @@
   max-width: fit-content;
   text-align: center;
 }
+
 .description {
   font-style: italic;
 }
+
 .main {
   background-image: url("../../assets/img/fundo-registrar.jpg");
   background-size: cover;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-top: -32px;
+  margin-bottom: -48px;
   height: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
 }
+
 .messageError {
   margin: 10px auto;
+  color: #8a3b13;
 }
+
+.messageSuccess {
+  margin: 10px auto;
+  color: #2f6b2f;
+  font-weight: 700;
+}
+
+.messageHint {
+  margin: 4px auto 0;
+  color: rgba(65, 72, 51, 0.72);
+  font-size: 0.9rem;
+}
+
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px var(--color-sixth) inset;
+}
+
+@media (max-width: 640px) {
+  .main {
+    margin-top: -24px;
+    margin-bottom: -48px;
+  }
 }

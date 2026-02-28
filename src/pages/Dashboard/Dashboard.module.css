@@ -1,44 +1,236 @@
-.noPost,
 .dashboard {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.dashboard {
-  padding: 20px;
-  min-height: 90vh;
-}
-.noPost {
+  width: min(1080px, 100%);
   min-height: 80vh;
+  margin: 0 auto;
+  padding: 12px 0 24px;
 }
-.btn {
-  background-color: var(--color-third);
+
+.hero {
   display: flex;
-  margin-top: 40px;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 26px;
+  border: 1px solid rgba(243, 114, 44, 0.2);
+  border-radius: 28px;
+  background: linear-gradient(135deg, #fff8f1 0%, #fff2e7 100%);
+  box-shadow: 0 20px 48px rgba(65, 72, 51, 0.08);
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--color-third);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h2 {
+  margin-bottom: 8px;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  line-height: 0.96;
+}
+
+.description {
+  max-width: 620px;
+  color: rgba(65, 72, 51, 0.8);
+  line-height: 1.7;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 180px));
+  gap: 14px;
+  align-self: start;
+}
+
+.statCard {
+  padding: 18px;
+  border: 1px solid rgba(243, 114, 44, 0.14);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.72);
+  text-align: center;
+}
+
+.statIcon {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-third);
+  font-size: 1.2rem;
+}
+
+.statCard strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--color-third);
+}
+
+.statCard span {
+  color: rgba(65, 72, 51, 0.76);
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 46px 24px;
+  border: 1px dashed rgba(243, 114, 44, 0.4);
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.68);
+  text-align: center;
+}
+
+.primaryAction {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
-  padding: 4px;
-  border-radius: 3px;
-}
-.btn:hover {
+  gap: 8px;
+  margin-top: 8px;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background-color: var(--color-third);
   color: var(--color-fifth);
-  opacity: 0.9;
+  font-weight: 700;
 }
-.btnDashboard {
-  text-align: center;
-  padding: 6px;
-  border: 1px solid var(--color-third);
-  border-radius: 3px;
-  margin: 0 0.3%;
-  width: 33%;
+
+.primaryAction:hover {
+  color: var(--color-fifth);
 }
-.buttons {
+
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.postCard {
   display: flex;
-  padding: 4px;
-  border-radius: 3px;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid rgba(243, 114, 44, 0.18);
+  border-radius: 24px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94),
+    rgba(255, 248, 241, 0.92)
+  );
+  box-shadow: 0 16px 40px rgba(65, 72, 51, 0.08);
 }
-.titleButtons {
-  margin-top: 6px;
+
+.cardTop h3 {
+  margin-bottom: 8px;
+}
+
+.cardLabel {
+  margin-bottom: 6px;
+  color: var(--color-third);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cardSummary {
+  color: rgba(65, 72, 51, 0.8);
+  line-height: 1.6;
+}
+
+.metaRow {
+  display: flex;
+  gap: 16px;
+  color: rgba(65, 72, 51, 0.72);
+  font-size: 0.95rem;
+}
+
+.metaRow span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: rgba(243, 114, 44, 0.12);
+  color: var(--color-third);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.secondaryAction,
+.deleteAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.secondaryAction {
+  border: 1px solid rgba(243, 114, 44, 0.28);
+  background-color: rgba(255, 255, 255, 0.82);
+}
+
+.deleteAction {
+  border: 1px solid rgba(138, 59, 19, 0.18);
+  background-color: rgba(255, 236, 228, 0.9);
+  color: #8a3b13;
+}
+
+.deleteAction:hover {
+  color: #8a3b13;
+  background-color: rgba(255, 223, 211, 0.95);
+}
+
+@media (max-width: 860px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .postGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 540px) {
+  .dashboard {
+    padding-top: 0;
+  }
+
+  .hero {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
 }

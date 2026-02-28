@@ -1,0 +1,81 @@
+.fullscreen,
+.compact {
+  display: grid;
+  place-items: center;
+}
+
+.fullscreen {
+  min-height: 100vh;
+}
+
+.compact {
+  min-height: 220px;
+}
+
+.loaderCard {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 22px;
+  border: 1px solid rgba(243, 114, 44, 0.22);
+  border-radius: 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 245, 235, 0.92)
+  );
+  box-shadow: 0 18px 40px rgba(65, 72, 51, 0.08);
+}
+
+.orbit {
+  position: relative;
+  width: 52px;
+  height: 52px;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid rgba(243, 114, 44, 0.18);
+  border-top-color: var(--color-third);
+  border-radius: 999px;
+  animation: spin 0.9s linear infinite;
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #f9a35f, var(--color-third));
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 8px rgba(243, 114, 44, 0.08);
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.eyebrow {
+  color: var(--color-third);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.label {
+  color: rgba(65, 72, 51, 0.84);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

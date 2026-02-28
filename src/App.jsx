@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "firebase/auth";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { useAuthentication } from "./hooks/useAuthentication";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -15,22 +15,29 @@ import CreatePost from "./pages/CreatePost/CreatePost";
 import Search from "./pages/Search/Search";
 import Post from "./pages/Post/Post";
 import EditPost from "./pages/EditPost/EditPost";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+
 function App() {
   const [user, setUser] = useState(undefined);
   const { auth } = useAuthentication();
   const loadingUser = user === undefined;
+
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUser(user);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
     });
+
+    return unsubscribe;
   }, [auth]);
+
   if (loadingUser) {
-    return <p>Carregando</p>;
+    return <LoadingScreen label="Preparando sua experiência..." />;
   }
+
   return (
-    <>
-      <AuthContextProvider value={{ user }}>
-        <BrowserRouter>
+    <AuthContextProvider value={{ user }}>
+      <BrowserRouter>
+        <div className="app-shell">
           <Navbar />
           <div className="main">
             <Routes>
@@ -61,9 +68,9 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </BrowserRouter>
-      </AuthContextProvider>
-    </>
+        </div>
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 

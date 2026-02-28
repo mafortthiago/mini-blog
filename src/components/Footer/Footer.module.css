@@ -1,11 +1,111 @@
 .footer {
-  background-color: var(--color-fifth);
-  text-align: center;
+  width: 100%;
+  padding: 28px 20px 34px;
+  border-top: 1px solid rgba(243, 114, 44, 0.28);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 248, 241, 0.7),
+      rgba(255, 243, 232, 0.94)
+    ),
+    var(--color-fifth);
+}
+
+.inner {
+  width: min(1100px, 100%);
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+}
+
+.brandBlock {
+  max-width: 580px;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--color-third);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.brandBlock h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  line-height: 1.05;
+}
+
+.description {
+  color: rgba(65, 72, 51, 0.76);
+  line-height: 1.6;
+}
+
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  color: rgba(65, 72, 51, 0.78);
+  white-space: nowrap;
+}
+
+.badge {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  padding: 50px;
-  border-top: 1px solid var(--color-third);
+  gap: 8px;
+  padding: 7px 12px;
+  border: 1px solid rgba(243, 114, 44, 0.22);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.74);
+  color: var(--color-third);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(243, 114, 44, 0.22);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.74);
+  color: var(--color-second);
+  font-weight: 700;
+}
+
+.socialLink:hover {
+  color: var(--color-fifth);
+  background-color: var(--color-third);
+  border-color: var(--color-third);
+}
+
+@media (max-width: 720px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .metaBlock {
+    align-items: flex-start;
+    white-space: normal;
+  }
+
+  .socialLinks {
+    justify-content: flex-start;
+  }
 }

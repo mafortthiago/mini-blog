@@ -1,79 +1,120 @@
 .navbar {
-  padding: 6px 3%;
-  background-color: var(--color-fifth);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 10px 3%;
   display: flex;
   align-items: center;
-  height: 56px;
   justify-content: space-between;
-  border-bottom: 1px solid var(--color-third);
+  min-height: 72px;
+  border-bottom: 1px solid rgba(243, 114, 44, 0.28);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 249, 242, 0.96),
+      rgba(255, 245, 235, 0.92)
+    ),
+    var(--color-fifth);
+  backdrop-filter: blur(10px);
 }
 
 .title {
-  letter-spacing: 0.2px;
   color: var(--color-third);
   font-style: italic;
-  font-weight: 800;
+  font-weight: 900;
+  font-size: clamp(1.8rem, 2vw, 2.2rem);
+  letter-spacing: -0.02em;
+  line-height: 0.92;
 }
 
 .title:hover {
-  filter: grayscale(0.3);
-  transition: 0.4s;
+  filter: saturate(0.85);
 }
+
 .blog {
-  font-size: 1.1em;
+  color: var(--color-second);
 }
-.navLink {
-  list-style-type: none;
-  margin: 0 12px;
-}
+
+.nav,
 .ulLinks {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
+
+.navLink {
+  list-style-type: none;
+}
+
 .link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid rgba(243, 114, 44, 0.26);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.64);
   color: var(--color-third);
-  padding: 2px 9px;
-  border-radius: 14px;
-  border: 1px solid var(--color-third);
+  font-weight: 700;
 }
+
 .link:hover {
   background-color: var(--color-third);
   color: var(--color-fifth);
-  filter: grayscale(0.3);
-  transition: 0.4s;
+  border-color: var(--color-third);
+  box-shadow: 0 10px 24px rgba(243, 114, 44, 0.18);
 }
-.logout_img {
-  width: 24px;
-}
+
 .btn_logout {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(243, 114, 44, 0.22);
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.64);
 }
-.nav {
-  display: flex;
-  align-items: center;
+
+.btn_logout:hover {
+  background-color: rgba(243, 114, 44, 0.12);
 }
+
+.btn_logout i {
+  font-size: 1.05rem;
+  color: var(--color-third);
+}
+
 @media (max-width: 640px) {
   .nav {
     display: none;
   }
+
   .ulLinks {
     position: absolute;
-    flex-direction: column;
-    justify-content: space-evenly;
-    font-weight: 800;
-    width: 100%;
-    top: 56px;
+    top: 72px;
     left: 0;
-    background-color: var(--color-sixth);
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: calc(100vh - 72px);
+    padding: 24px 16px;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 248, 241, 0.98),
+        rgba(255, 239, 226, 0.96)
+      ),
+      var(--color-sixth);
+  }
 
-    height: 92vh;
+  .link,
+  .btn_logout {
+    width: 100%;
   }
-  .link {
-    color: var(--color-second);
-    border: 1px solid var(--color-second);
-  }
+
   .menuAberto,
   .menuFechado {
     display: flex;
@@ -81,33 +122,36 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
   }
+
   .btn_menu {
     width: 30px;
-    height: 5px;
+    height: 4px;
     background-color: var(--color-third);
-    transition: all 0.01s ease-in-out;
-    border-radius: 5px;
+    transition: all 0.12s ease-in-out;
+    border-radius: 999px;
   }
+
   .btn_menu::before,
   .btn_menu::after {
     content: "";
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
     width: 30px;
-    height: 5px;
+    height: 4px;
     background-color: var(--color-third);
-    border-radius: 5px;
+    border-radius: 999px;
   }
+
   .btn_menu::before {
-    transform: translateY(-10px);
+    transform: translateY(-9px);
   }
+
   .btn_menu::after {
-    transform: translateY(10px);
+    transform: translateY(9px);
   }
+
   .menuAberto .btn_menu {
     background: transparent;
   }
@@ -115,6 +159,7 @@
   .menuAberto .btn_menu::before {
     transform: rotate(45deg);
   }
+
   .menuAberto .btn_menu::after {
     transform: rotate(-45deg);
   }
